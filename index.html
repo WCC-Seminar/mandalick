@@ -4,12 +4,20 @@
   <meta charset="UTF-8">
   <title>mandalick</title>
   <link rel="stylesheet" href="./css/main.css">
-    <script src="./js/common.js"></script>
+  <script src="./js/gameobj.js"></script>
+  <script src="./js/common.js"></script>
   <script src="./js/actors.js"></script>
-  <script srs="./js/facilities.js"></script>
+  <!-- -<script src="./js/facilities.js"></script>-->
+  <script src="./js/actions.js"></script>
+  <script src="./js/display.js"></script>
+  <script src="./js/mainstep.js"></script>
   <script src="./js/main.js"></script>
+    
 </head>
 <body>
+  <div id="click" onClick="actions.click()">click me!</div>
+  <input id="click" type="button"  onClick="actions.click()"  value="click"><br>
+  <input id="disp" type="button"  onClick="displayTestAlpha()"  value="disp">
   <div id="current-state" class="state">
     <div id="body-container" class="data-container">
       宗派

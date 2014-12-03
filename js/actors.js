@@ -1,23 +1,37 @@
-function People(name, id, baseOutput, cost, population,
+﻿function People(name, id, baseOutput, cost, population,
                 unlocked, description){
   this.name = name;
   this.id = id;
   this.baseOutput = baseOutput;
   this.baseCost = cost;
   this.population = population || 0;
+  this.populationRemainder = 0;
+  this.populationAutoAdd = 0;
   this.unlocked = unlocked || false;
   this.description = description || "";
 }
 
+// "n" must be under 2^32
 People.prototype.addToPopulation = function(n){
-  this.population += n;
+  this.populationRemainder += n - (n | 0);
+  return this.population += n | 0;
 };
 
 People.prototype.incrementPopulation = function(){
-  this.population += 1;
+  return this.population += 1;
 };
 
-var peoples = {
+People.prototype.populationOptimize = function(){
+  var extra;
+  if(extra=(this.populationRemainder|0)){
+    this.population += extra;
+    this.populationRemainder -= extra;
+    return true;
+  }
+  return false;
+}
+
+peoples = {
   parish : new People(
     "信徒", "parish", new BaseOutput(0,3), new BaseCost(0,0),
     1, true,
@@ -48,3 +62,4 @@ var peoples = {
     "高僧．さらにすごい．"
   )
 };
+

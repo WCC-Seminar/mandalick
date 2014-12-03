@@ -2,6 +2,7 @@ window.addEventListener('load', main);
 
 function main(){
   init();
+  activate();
 }
 
 function init(){
@@ -11,6 +12,10 @@ function init(){
       peopleSetUp(people);
     }
   }
+}
+
+function activate(){
+  setInterval(mainStep,1000);
 }
 
 function peopleSetUp(p){
@@ -23,3 +28,4 @@ var setTitles = {
     elm.title = p.description;
   }
 };
+

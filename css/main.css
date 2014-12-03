@@ -1,6 +1,14 @@
 div.data-container{
 }
 
+div#click {
+    background-color: #808080;
+    width: 12em;
+    text-align: center;
+    font-weight: bold;
+}
+
+
 ul.data-list li div.data-label {
     display: inline-block;
     width:6em;
